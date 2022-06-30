@@ -12,6 +12,21 @@
 
 #include "pipex.h"
 
+char	*ft_get_line(char *envp[])
+{
+	int		i;
+	char	*str;
+
+	i = 0;
+	str = ft_strnstr(envp[i], "PATH=", 5);
+	while (str == 0 && envp[i] != NULL)
+	{
+		str = ft_strnstr(envp[i], "PATH=", 5);
+		i++;
+	}
+	return (str);
+}
+
 char	*path_finder(char *cmd, char **envp)
 {
 	t_meh	a;
@@ -77,21 +92,6 @@ void	cmd2_executer(int *fd, char *argv[], char *envp[])
 	if (execve(path_finder(tmp[0], envp), tmp, envp) == -1)
 		ft_error("Error");
 	free(tmp);
-}
-
-char	*ft_get_line(char *envp[])
-{
-	int		i;
-	char	*str;
-
-	i = 0;
-	str = ft_strnstr(envp[i], "PATH=", 5);
-	while (str == 0 && envp[i] != NULL)
-	{
-		str = ft_strnstr(envp[i], "PATH=", 5);
-		i++;
-	}
-	return (str);
 }
 
 void	ft_error(char *str)
