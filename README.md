@@ -5,7 +5,7 @@
 
 <img src="https://i.stack.imgur.com/7dtsi.png" alt="pipe">
   
-<h3> 💈 This project is about simulating the behavior of Unix PIPE.</h3> 
+<h3>Simulating the Unix PIPE.</h3> 
 
 The program will launch as :
 ```shell
